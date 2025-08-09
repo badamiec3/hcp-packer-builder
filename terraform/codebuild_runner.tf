@@ -12,7 +12,7 @@ resource "aws_codebuild_project" "packer_builder" {
   }
 
   environment {
-    compute_type = "BUILD_GENERAL1_SMALL"
+    compute_type = "BUILD_GENERAL1_MEDIUM"
     image        = "aws/codebuild/amazonlinux2-x86_64-standard:6.0"
     type         = "LINUX_CONTAINER"
     #image_pull_credentials_type = "CODEBUILD"

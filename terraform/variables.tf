@@ -7,4 +7,5 @@ variable "project_name" {
 variable "github_token_path" {
   description = "GitHub token for accessing private repositories"
   type        = string
+  default     = ""
 }

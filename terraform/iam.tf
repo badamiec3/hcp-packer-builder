@@ -11,7 +11,7 @@ data "aws_iam_policy_document" "github_codebuild_runner_role_trust_policy" {
 
     principals {
       type        = "Service"
-      identifiers = [codebuild.amazonaws.com]
+      identifiers = ["codebuild.amazonaws.com"]
     }
 
     actions = ["sts:AssumeRole"]

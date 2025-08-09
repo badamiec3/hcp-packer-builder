@@ -7,5 +7,5 @@ variable "project_name" {
 variable "github_token_path" {
   description = "GitHub token for accessing private repositories"
   type        = string
-  default     = ""
+  default     = "arn:aws:secretsmanager:eu-west-1:560460596452:secret:github/pat/hcp-packer-builder-ngQziq"
 }

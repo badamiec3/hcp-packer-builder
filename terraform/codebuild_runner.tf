@@ -33,3 +33,14 @@ resource "aws_codebuild_project" "packer_builder" {
 
 
 } 
+
+resource "aws_codebuild_webhook" "packer_builder_webhook" {
+  project_name = aws_codebuild_project.packer_builder.name
+  build_type   = "BUILD"
+  filter_group {
+    filter {
+      type    = "EVENT"
+      pattern = "WORKFLOW_JOB_QUEUED"
+    }
+  }
+}

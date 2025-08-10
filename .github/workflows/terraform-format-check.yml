@@ -16,14 +16,18 @@ jobs:
 
             - name: Check formatting
               run: | 
-                pwd
-                cd terraform
-                pwd
-                terraform fmt --recursive
-                if [[ $(terraform fmt --recursive) ]]; then
+                echo "Checking directory..."
+                if [[ $(pwd) != *"terraform"* ]]; then
+                    cd terraform
+                    echo "Changed to terraform directory, proceeding..."
+                else
+                    echo "Correct directory, proceeding..."
+                fi
+                echo "Checking terraform configuration formatting..."
+                if [[ $(terraform fmt --recursive | wc -l | xargs) == 0 ]]; then
+                    echo "The terraform configuration is formatted correctly. You can proceed."
+                else
                     echo "::error::The terraform configuration is not formatted correctly. Run the following locally and commit the changes before proceeding:"
                     echo "terraform fmt --recursive"
                     exit 1
-                else
-                    echo "The terraform configuration is formatted correctly. You can proceed."
                 fi

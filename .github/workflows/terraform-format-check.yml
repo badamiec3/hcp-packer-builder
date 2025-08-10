@@ -25,5 +25,5 @@ jobs:
                     echo "terraform fmt --recursive"
                     exit 1
                 else
-                    echo "Nothing to format, you can proceed."
+                    echo "The terraform configuration is formatted correctly. You can proceed."
                 fi

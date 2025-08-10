@@ -26,17 +26,17 @@ resource "aws_codebuild_project" "packer_builder" {
 
 
   artifacts {
-    type =  "NO_ARTIFACTS"
+    type = "NO_ARTIFACTS"
   }
 
   service_role = aws_iam_role.github_codebuild_runner_role.arn
 
 
-} 
+}
 
 resource "aws_codebuild_webhook" "packer_builder_webhook" {
   project_name = aws_codebuild_project.packer_builder.name
-  build_type   =    "BUILD"
+  build_type   = "BUILD"
   filter_group {
     filter {
       type    = "EVENT"

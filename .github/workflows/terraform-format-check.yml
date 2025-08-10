@@ -13,6 +13,8 @@ jobs:
 
             - name: Setup Terraform
               uses: hashicorp/setup-terraform@v2.0.2
+              with:
+                terraform_wrapper: false
 
             - name: Check formatting
               run: | 
@@ -24,7 +26,7 @@ jobs:
                     echo "Correct directory, proceeding..."
                 fi
                 echo "Checking terraform configuration formatting..."
-                if [[ $(terraform fmt --recursive | wc -l | xargs) == 0 ]]; then
+                if [[ $(terraform fmt --recursive | wc -l | xargs) == "0" ]]; then
                     echo "The terraform configuration is formatted correctly. You can proceed."
                 else
                     echo "::error::The terraform configuration is not formatted correctly. Run the following locally and commit the changes before proceeding:"

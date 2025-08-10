@@ -32,7 +32,7 @@ resource "aws_codebuild_project" "packer_builder" {
   service_role = aws_iam_role.github_codebuild_runner_role.arn
 
 
-} 
+}
 
 resource "aws_codebuild_webhook" "packer_builder_webhook" {
   project_name = aws_codebuild_project.packer_builder.name

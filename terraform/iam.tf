@@ -28,9 +28,10 @@ data "aws_iam_policy_document" "github_codebuild_runner_policy_document" {
 }
 
 resource "aws_iam_policy" "github_codebuild_runner_policy" {
-  name        = "${var.project_name}-policy"
-  policy      = data.aws_iam_policy_document.github_codebuild_runner_policy_document.json
+  name   = "${var.project_name}-policy"
+  policy = data.aws_iam_policy_document.github_codebuild_runner_policy_document.json
 }
+
 
 resource "aws_iam_role_policy_attachment" "github_codebuild_runner_policy_attachment" {
   role       = aws_iam_role.github_codebuild_runner_role.name

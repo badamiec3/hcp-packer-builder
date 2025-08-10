@@ -21,10 +21,8 @@ jobs:
                 pwd
                 terraform fmt --recursive
                 if [[ $(terraform fmt --recursive) ]]; then
-                    echo "::group::"
-                    echo "::error::The code is not formatted correctly. Run the following locally and commit the changes before proceeding:"
+                    echo "::error::The terraform configuration is not formatted correctly. Run the following locally and commit the changes before proceeding:"
                     echo "terraform fmt --recursive"
-                    echo "::endgroup::"
                     exit 1
                 else
                     echo "Nothing to format, you can proceed."

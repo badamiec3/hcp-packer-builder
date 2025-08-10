@@ -26,7 +26,7 @@ resource "aws_codebuild_project" "packer_builder" {
 
 
   artifacts {
-    type = "NO_ARTIFACTS"
+    type =  "NO_ARTIFACTS"
   }
 
   service_role = aws_iam_role.github_codebuild_runner_role.arn

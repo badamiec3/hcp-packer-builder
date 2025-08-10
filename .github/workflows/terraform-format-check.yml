@@ -1,0 +1,22 @@
+on:
+    pull_request:
+        branches: ["main"]
+        paths:
+            - "terraform/**"
+
+jobs:
+    TerraformFormatCheck:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Setup Terraform
+              uses: hashicorp/setup-terraform@v2.0.2
+
+            - name: Check formatting
+              run: | 
+                pwd
+                cd terraform
+                pwd
+                terraform fmt --recursive

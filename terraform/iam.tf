@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "github_codebuild_runner_role_trust_policy" {
 
 data "aws_iam_policy_document" "github_codebuild_runner_policy_document" {
   statement {
-    effect    = "Allow"
+    effect    =    "Allow"
     actions   = ["secretsmanager:Get*"]
     resources = [var.github_token_path]
   }

@@ -1,3 +1,9 @@
+resource "aws_codebuild_source_credential" "github_pat" {
+  auth_type   = "SECRETS_MANAGER"
+  server_type = "GITHUB"
+  token       = var.github_token_path
+}
+
 resource "aws_codebuild_project" "packer_builder" {
   name        = "${var.project_name}-github-runner"
   description = "CodeBuild GitHub Runner for HCP Packer Builder"

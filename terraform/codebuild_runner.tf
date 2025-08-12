@@ -10,7 +10,7 @@ resource "aws_codebuild_project" "packer_builder" {
 
   source {
     type     = "GITHUB"
-    location =    "https://github.com/badamiec3/hcp-packer-builder.git"
+    location = "https://github.com/badamiec3/hcp-packer-builder.git"
     auth {
       type     = "SECRETS_MANAGER"
       resource = var.github_token_path
